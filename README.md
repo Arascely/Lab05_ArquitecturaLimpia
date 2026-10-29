@@ -9,6 +9,18 @@
 
 ## Sistema de Gestion Academica
 
+### Estructura del trabajo
+
+### Estructura del Repositorio y Ramas
+
+```text
+SistemaGestionAcademica
+├── Ramas de Desarrollo (Patrones)
+│   ├── abstract-factory
+│   └── iterator
+└── README.md
+```
+
 ## 1. Rama Abstract Factory
 
 La rama `AbstractFactory` conserva la arquitectura hexagonal y agrega una
@@ -17,7 +29,7 @@ entrada conozca directamente la implementacion de persistencia.
 
 ## 1.2. Estructura del sistema
 
-### Motor de arranque
+#### Motor de arranque
 
 - `Main` es el punto de entrada. Solicita el repositorio a
 	`RepositoryFactory` y crea `EstudianteService` y `EstudianteUI`.
@@ -28,20 +40,20 @@ entrada conozca directamente la implementacion de persistencia.
 	Sus operaciones `mostrarMenu`, `registrar` y `listar` utilizan solamente
 	`EstudianteUseCase`, nunca una conexion a la base de datos.
 
-### Capa de Logica de Negocio
+#### Capa de Logica de Negocio
 
 - `EstudianteUseCase` define las operaciones `registrar`, `listar`,
 	`actualizar` y `eliminar`.
 - `EstudianteService` implementa ese contrato y delega el almacenamiento en
 	`EstudianteRepository`.
 
-### Capa de Creacion
+#### Capa de Creacion
 
 - `RepositoryFactory` centraliza `crear()` y decide si devuelve
 	`EstudianteRepositoryJson` o `EstudianteRepositoryPostgres` bajo el tipo
 	`EstudianteRepository`.
 
-### Capa de Acceso a Datos
+#### Capa de Acceso a Datos
 
 - `EstudianteRepository` estandariza `guardar`, `listar`, `buscarPorId`,
 	`actualizar` y `eliminar`.
@@ -49,12 +61,12 @@ entrada conozca directamente la implementacion de persistencia.
 - `EstudianteRepositoryPostgres` persiste en PostgreSQL mediante URL, usuario
 	y password.
 
-### Entidad de Dominio
+#### Entidad de Dominio
 
 - `Estudiante` contiene `id`, `nombre` y `correo`, con constructor y getters.
 	No expone setters para conservar el modelo como entidad de solo lectura.
 
-## Cambios realizados
+### Cambios realizados
 
 1. Se actualizo `RepositoryFactory` para centralizar la creacion de los
    repositorios JSON y PostgreSQL mediante `crear()`.
@@ -64,3 +76,7 @@ entrada conozca directamente la implementacion de persistencia.
 4. Se ajusto `Estudiante` para exponer atributos mediante constructor y
    getters, sin setters.
 5. Se documento en este archivo la estructura y el uso de la fabrica.
+
+## Verificacion del funcionamiento del sistema
+<img width="891" height="420" alt="Captura de pantalla 2026-10-28 232052" src="https://github.com/user-attachments/assets/cabaa388-18fa-4b5f-9275-3ac41ceeea95" />
+
