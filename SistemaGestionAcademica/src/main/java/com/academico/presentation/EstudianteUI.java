@@ -1,9 +1,9 @@
 package com.academico.presentation;
 import com.academico.application.port.in.EstudianteUseCase;
 import com.academico.domain.model.Estudiante;
-import com.academico.application.service.EstudianteService;
 
-import  java.util.Scanner;
+import java.util.Iterator;
+import java.util.Scanner;
 
 
 public class EstudianteUI {
@@ -66,13 +66,15 @@ public class EstudianteUI {
 
     }
     private void listar(){
-        service.listar().forEach(e ->
-                System.out.println(
-                        e.getId() + " - " +
-                                e.getNombre() + " - " +
-                                e.getCorreo()
-                )
-        );
+        Iterator<Estudiante> iterator = service.listar();
+        while (iterator.hasNext()) {
+            Estudiante estudiante = iterator.next();
+            System.out.println(
+                estudiante.getId() + " - " +
+                    estudiante.getNombre() + " - " +
+                    estudiante.getCorreo()
+            );
+        }
     }
     private void actualizar(Scanner sc){
         System.out.print("ID del estudiante: ");

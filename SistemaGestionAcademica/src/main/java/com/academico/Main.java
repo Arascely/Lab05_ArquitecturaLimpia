@@ -1,5 +1,4 @@
 package com.academico;
-import com.academico.infrastructure.adapter.out.persistence.EstudianteRepositoryJson;
 import com.academico.infrastructure.adapter.out.persistence.EstudianteRepositoryPostgres;
 import com.academico.presentation.EstudianteUI;
 

@@ -1,11 +1,10 @@
 package com.academico.application.service;
 import com.academico.application.port.in.EstudianteUseCase;
 import com.academico.domain.model.Estudiante;
-//import com.academico.infrastructure.persistence.EstudianteRepositoryJson;
+import com.academico.domain.iterator.EstudianteIterator;
 import com.academico.domain.repository.EstudianteRepository;
 
-
-import java.util.List;
+import java.util.Iterator;
 
 public class EstudianteService implements EstudianteUseCase {
 
@@ -21,8 +20,8 @@ public class EstudianteService implements EstudianteUseCase {
     }
 
     @Override
-    public List<Estudiante> listar() {
-        return repository.listar();
+    public Iterator<Estudiante> listar() {
+        return new EstudianteIterator(repository.listar());
     }
 
     @Override

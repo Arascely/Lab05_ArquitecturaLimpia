@@ -1,12 +1,13 @@
 package com.academico.application.port.in;
 import com.academico.domain.model.Estudiante;
 
-import java.util.List;
+import java.util.Iterator;
+
 public interface EstudianteUseCase {
 
     public void registrar (Estudiante estudiante);
 
-    public List<Estudiante> listar();
+    public Iterator<Estudiante> listar();
 
     public boolean  actualizar(Estudiante estudiante);
 
