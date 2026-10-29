@@ -1,10 +1,9 @@
 package com.academico;
-import com.academico.infrastructure.adapter.out.persistence.EstudianteRepositoryJson;
-import com.academico.infrastructure.adapter.out.persistence.EstudianteRepositoryPostgres;
 import com.academico.presentation.EstudianteUI;
 
 import com.academico.application.service.EstudianteService;
 import com.academico.domain.repository.EstudianteRepository;
+import com.academico.infrastructure.adapter.out.factory.RepositoryFactory;
 
 import  java.util.Scanner;
 
@@ -12,9 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 1. Adaptador de salida: almacena en JSON
-        //EstudianteRepository repository=new EstudianteRepositoryJson();
-        EstudianteRepository repository=new EstudianteRepositoryPostgres();
+        // 1. Fábrica: selecciona el adaptador de salida.
+        RepositoryFactory factory = new RepositoryFactory();
+        EstudianteRepository repository = factory.crear();
 
 
         //2. Nucleo de la aplicacion: caso de uso
