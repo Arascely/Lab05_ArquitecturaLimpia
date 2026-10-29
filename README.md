@@ -20,6 +20,13 @@ SistemaGestionAcademica
 │   └── iterator
 └── README.md
 ```
+### Descripción de Componentes
+
+| Rama (Branch) | Descripción del Patrón Implementado |
+| :--- | :--- |
+| **`feature/abstract-factory`** | Implementación del patrón creacional *Abstract Factory* para la gestión de repositorios (JSON/Postgres). |
+| **`feature/iterator`** | Implementación del patrón de comportamiento *Iterator* para el recorrido de colecciones. |
+| **`main`** | Rama principal estable del sistema académico. |
 
 ## 1. Rama Abstract Factory
 
